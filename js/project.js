@@ -76,6 +76,17 @@ function updateSEO(project) {
   const description = seo.description || project.subtitle;
   const keywords = seo.keywords || project.tags.join(', ');
 
+  const origin = window.location.origin;
+  const canonical = `${origin}/project.html?id=${project.id}`;
+
+  // Resolve an absolute social-share image: project main image > app icon > site OG image
+  const rawImg = (project.mainImage && project.mainImage.trim())
+    || project.icon
+    || 'assets/og-image.png';
+  const imageAbs = rawImg.startsWith('http')
+    ? rawImg
+    : `${origin}/${rawImg.replace(/^\//, '')}`;
+
   // Page Title
   document.title = title;
 
@@ -90,22 +101,66 @@ function updateSEO(project) {
     el.setAttribute('content', content);
   };
 
-  // Default SEO
+  // Canonical link
+  let canonicalEl = document.querySelector('link[rel="canonical"]');
+  if (!canonicalEl) {
+    canonicalEl = document.createElement('link');
+    canonicalEl.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonicalEl);
+  }
+  canonicalEl.setAttribute('href', canonical);
+
+  // Standard meta
   setMeta('description', description);
   setMeta('keywords', keywords);
 
   // Open Graph
+  setMeta('og:site_name', 'Made by Sai', 'property');
   setMeta('og:title', title, 'property');
   setMeta('og:description', description, 'property');
-  setMeta('og:url', window.location.href, 'property');
-  setMeta('og:type', 'article', 'property');
-  setMeta('og:image', `${window.location.origin}/assets/logo.svg`, 'property');
+  setMeta('og:url', canonical, 'property');
+  setMeta('og:type', 'website', 'property');
+  setMeta('og:image', imageAbs, 'property');
+  setMeta('og:image:alt', `${project.title} — preview`, 'property');
+  setMeta('og:locale', 'en_US', 'property');
 
   // Twitter Card
   setMeta('twitter:card', 'summary_large_image');
+  setMeta('twitter:url', canonical);
   setMeta('twitter:title', title);
   setMeta('twitter:description', description);
-  setMeta('twitter:image', `${window.location.origin}/assets/logo.svg`);
+  setMeta('twitter:image', imageAbs);
+
+  // Structured data (JSON-LD) describing the project as a software application
+  const typeMap = {
+    'Web App': 'WebApplication',
+    'Desktop App': 'SoftwareApplication',
+    'Mobile App': 'MobileApplication'
+  };
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': typeMap[project.category] || 'CreativeWork',
+    name: project.title,
+    description: description,
+    url: canonical,
+    image: imageAbs,
+    applicationCategory: project.category,
+    datePublished: project.date,
+    author: {
+      '@type': 'Person',
+      name: 'Sai Wai Hlyan Htun',
+      url: `${origin}/`
+    }
+  };
+
+  let ld = document.getElementById('project-jsonld');
+  if (!ld) {
+    ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.id = 'project-jsonld';
+    document.head.appendChild(ld);
+  }
+  ld.textContent = JSON.stringify(jsonLd);
 }
 
 /**

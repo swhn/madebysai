@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       // 4. Send Real Email via FormSubmit AJAX API
-      const response = await fetch('https://formsubmit.co/ajax/hello@madebysai.com', {
+      const response = await fetch('https://formsubmit.io/send/hello@madebysai.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
