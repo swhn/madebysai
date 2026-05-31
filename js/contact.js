@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     fields.forEach(field => field.disabled = true);
 
     try {
-      // 4. Send Real Email via FormSubmit AJAX API
-      const response = await fetch('https://formsubmit.io/send/hello@madebysai.com', {
+      // 4. Send Real Email via FormSubmit AJAX API (CORS-enabled JSON endpoint)
+      const response = await fetch('https://formsubmit.co/ajax/hello@madebysai.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
           name: name,
           email: email,
           _subject: `[Portfolio Contact] ${subject}`,
+          _template: 'table',
+          _captcha: 'false',
           message: message
         })
       });
@@ -71,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const result = await response.json();
+      if (result.success !== 'true' && result.success !== true) {
+        throw new Error(result.message || 'Form submission was not successful');
+      }
 
       // 5. Trigger Success Toast
       showNotification('Your message has been sent successfully!', 'success');
