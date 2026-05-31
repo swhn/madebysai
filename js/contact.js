@@ -51,21 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
     fields.forEach(field => field.disabled = true);
 
     try {
-      // 4. Send Real Email via FormSubmit AJAX API (CORS-enabled JSON endpoint)
+      // 4. Send Real Email via FormSubmit AJAX API.
+      // Use FormData (multipart) rather than JSON so the request stays a
+      // CORS "simple request" — JSON content-type would trigger a preflight
+      // OPTIONS that FormSubmit doesn't answer with CORS headers.
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('_subject', `[Portfolio Contact] ${subject}`);
+      formData.append('_template', 'table');
+      formData.append('_captcha', 'false');
+      formData.append('message', message);
+
       const response = await fetch('https://formsubmit.co/ajax/hello@madebysai.com', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: name,
-          email: email,
-          _subject: `[Portfolio Contact] ${subject}`,
-          _template: 'table',
-          _captcha: 'false',
-          message: message
-        })
+        body: formData
       });
 
       if (!response.ok) {
