@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
+  <defs>
+    <!-- Favicon Background -->
+    <linearGradient id="fav-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e252b" />
+      <stop offset="100%" stop-color="#0f1316" />
+    </linearGradient>
+    
+    <!-- Cool Steel Blue Gradient -->
+    <linearGradient id="fav-steel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8da9c4" />
+      <stop offset="100%" stop-color="#3f5e7a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base Circle background -->
+  <circle cx="32" cy="32" r="30" fill="url(#fav-bg)" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+  
+  <!-- Mini Gold Sun dot -->
+  <circle cx="43" cy="21" r="5" fill="#fdbb2d" />
+
+  <!-- Compact S curve shape -->
+  <path d="M 35,18
+           C 27,18 23,23 23,27
+           C 23,32 28,33 32,34
+           C 36,35 41,36 41,41
+           C 41,46 37,50 30,50
+           C 24,50 20,46 20,44"
+        fill="none" 
+        stroke="url(#fav-steel)" 
+        stroke-width="5.5" 
+        stroke-linecap="round" />
+</svg>

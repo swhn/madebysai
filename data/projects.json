@@ -1,0 +1,153 @@
+[
+  {
+    "id": "synthesis-record",
+    "title": "Synthesis Record",
+    "subtitle": "An electronic music collective platform for DJ producers pushing the boundaries of sound.",
+    "category": "Web App",
+    "description": "Synthesis Record is a full-featured platform built for an electronic music collective. It includes artist profiles, music release management, event listings, a merch store, news articles, a photo gallery, and a mailing list. The admin dashboard supports multi-role access with content approval workflows, analytics, and site-wide settings. Built with Next.js, Prisma, and Supabase for a fast, server-rendered experience with real-time data.",
+    "themeColor": "linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%)",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "Supabase",
+      "TailwindCSS"
+    ],
+    "mainImage": "assets/images/synthesis-og.png",
+    "screenshots": [
+      "assets/images/synthesis-releases.jpg",
+      "assets/images/synthesis-artists.jpg",
+      "assets/images/synthesis-gallery.jpg",
+      "assets/images/synthesis-about.jpg",
+      "assets/images/synthesis-artist-profile.jpg"
+    ],
+    "buttons": [
+      {
+        "label": "Visit Site",
+        "url": "https://www.synthesisrecord.com",
+        "type": "primary",
+        "icon": "external-link"
+      }
+    ],
+    "featured": true,
+    "date": "2026-05",
+    "seo": {
+      "title": "Synthesis Record - Electronic Music Collective Platform | Made by Sai",
+      "description": "Synthesis Record is a full-featured platform for an electronic music collective, featuring artist profiles, releases, events, merch, and an admin dashboard.",
+      "keywords": "Synthesis Record, electronic music, DJ collective, music platform, Next.js, Supabase, artist management"
+    }
+  },
+  {
+    "id": "ban-sagar",
+    "title": "Ban Sagar",
+    "subtitle": "The largest Myanmar slang words dictionary — discover, learn, and contribute.",
+    "category": "Web App",
+    "description": "Ban Sagar (ဗန်းစကား) is a community-driven Myanmar slang dictionary. Users can browse, search, and contribute Burmese street language, colloquial expressions, and trending slang words. The app features a modern dark-mode interface, real-time search, community submissions, and smooth page transitions. Built with React, Vite, and Supabase with Vercel Analytics for performance monitoring.",
+    "themeColor": "linear-gradient(135deg, #0a0a0f 0%, #1e1b4b 50%, #312e81 100%)",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Supabase",
+      "TailwindCSS"
+    ],
+    "mainImage": "assets/images/bansagar-og.png",
+    "screenshots": [
+      "assets/images/bansagar-word-detail.png",
+      "assets/images/bansagar-badges.png",
+      "assets/images/bansagar-contribute.png"
+    ],
+    "buttons": [
+      {
+        "label": "Visit Site",
+        "url": "https://bansagar.com",
+        "type": "primary",
+        "icon": "external-link"
+      }
+    ],
+    "featured": true,
+    "date": "2026-05",
+    "seo": {
+      "title": "Ban Sagar - Myanmar Slang Words Dictionary | Made by Sai",
+      "description": "Ban Sagar is the largest Myanmar slang words dictionary. Discover, learn, and contribute to Burmese street language and colloquial expressions.",
+      "keywords": "Ban Sagar, Myanmar slang, Burmese dictionary, ဗန်းစကား, Myanmar dictionary, slang words, street language"
+    }
+  },
+  {
+    "id": "nmc-configuration-tool",
+    "title": "NMC Configuration Tool",
+    "subtitle": "APC UPS/PDU network management card serial console automation toolkit.",
+    "category": "Desktop App",
+    "description": "NMC Configuration Tools is a professional desktop utility for configuring APC UPS and PDU Network Management Cards via serial console. It automates the tedious process of manually entering configuration commands, supporting batch configuration with profiles, validation, and automated report generation. Features both a modern GUI built with Flet and a CLI for scripting. Developed for Win-Bells Engineering.",
+    "themeColor": "linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)",
+    "tags": [
+      "Python",
+      "Flet",
+      "PySerial",
+      "CustomTkinter",
+      "CLI"
+    ],
+    "icon": "assets/images/nmc-icon.png",
+    "mainImage": "",
+    "screenshots": [
+      "assets/images/nmc-config-panel.png",
+      "assets/images/nmc-device-select.png",
+      "assets/images/nmc-docs-hero.jpg",
+      "assets/images/nmc-docs-changelog.jpg"
+    ],
+    "buttons": [
+      {
+        "label": "View Docs",
+        "url": "https://nmc-tool.madebysai.com",
+        "type": "primary",
+        "icon": "external-link"
+      }
+    ],
+    "featured": true,
+    "date": "2026-05",
+    "seo": {
+      "title": "NMC Configuration Tool - APC UPS Serial Console Automation | Made by Sai",
+      "description": "NMC Configuration Tools automates APC UPS and PDU Network Management Card configuration via serial console with profiles, validation, and report generation.",
+      "keywords": "NMC Configuration Tool, APC UPS, PDU, serial console, network management card, automation, Win-Bells Engineering"
+    }
+  },
+  {
+    "id": "ban-sagar-android",
+    "title": "Ban Sagar Android",
+    "subtitle": "The Myanmar slang dictionary in your pocket — native Android companion app.",
+    "category": "Mobile App",
+    "description": "Ban Sagar Android is the native mobile companion to bansagar.com, bringing the Myanmar slang dictionary experience to Android. Built with Jetpack Compose and Material 3, it features offline caching with Room, real-time sync via Supabase Realtime, Google Sign-In authentication, and Firebase Crashlytics for stability monitoring. The app supports dark/light themes, smooth navigation, and a splash screen for a polished native feel.",
+    "themeColor": "linear-gradient(135deg, #0a0a0f 0%, #1e1b4b 50%, #312e81 100%)",
+    "tags": [
+      "Kotlin",
+      "Jetpack Compose",
+      "Supabase",
+      "Hilt",
+      "Room"
+    ],
+    "icon": "assets/images/bansagar-android-icon.png",
+    "mainImage": "",
+    "screenshots": [
+      "assets/images/bansagar-android-home.jpg",
+      "assets/images/bansagar-android-detail.jpg",
+      "assets/images/bansagar-android-settings.jpg",
+      "assets/images/bansagar-android-achievements.jpg",
+      "assets/images/bansagar-android-contribute.jpg"
+    ],
+    "buttons": [
+      {
+        "label": "Download APK",
+        "url": "https://bansagar.com",
+        "type": "primary",
+        "icon": "download"
+      }
+    ],
+    "featured": true,
+    "date": "2026-05",
+    "seo": {
+      "title": "Ban Sagar Android - Myanmar Slang Dictionary App | Made by Sai",
+      "description": "Ban Sagar Android is a native Jetpack Compose app for browsing and contributing to the largest Myanmar slang words dictionary.",
+      "keywords": "Ban Sagar, Android app, Myanmar slang, Jetpack Compose, Kotlin, Supabase, Burmese dictionary"
+    }
+  }
+]

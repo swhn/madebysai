@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Stormy Gradient -->
+    <linearGradient id="logo-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e252b" />
+      <stop offset="100%" stop-color="#0f1316" />
+    </linearGradient>
+    
+    <!-- Cool Steel Blue Gradient -->
+    <linearGradient id="steel-blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8da9c4" />
+      <stop offset="100%" stop-color="#3f5e7a" />
+    </linearGradient>
+    
+    <!-- Warm Sun Glow Gradient -->
+    <linearGradient id="warm-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fdbb2d" />
+      <stop offset="100%" stop-color="#d4a373" />
+    </linearGradient>
+    
+    <!-- Drop Shadow filters -->
+    <filter id="logo-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#8da9c4" flood-opacity="0.3" />
+    </filter>
+    
+    <filter id="gold-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#fdbb2d" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Base Circle Frame -->
+  <circle cx="256" cy="256" r="240" fill="url(#logo-bg-grad)" stroke="rgba(255, 255, 255, 0.05)" stroke-width="6" />
+  
+  <!-- Subtle inner concentric rings -->
+  <circle cx="256" cy="256" r="200" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="2" stroke-dasharray="8, 6" />
+  <circle cx="256" cy="256" r="160" fill="none" stroke="rgba(255, 255, 255, 0.02)" stroke-width="1" />
+
+  <!-- Gold Sun element (Breaking through) -->
+  <circle cx="340" cy="180" r="48" fill="url(#warm-gold-grad)" filter="url(#gold-glow)" />
+
+  <!-- Stylized Storm Cloud Path (Mist) -->
+  <path d="M 180,310 
+           A 35,35 0 0,1 210,250 
+           A 55,55 0 0,1 300,210 
+           A 45,45 0 0,1 370,250 
+           A 30,30 0 0,1 370,310 
+           Z" 
+        fill="none" 
+        stroke="rgba(255, 255, 255, 0.08)" 
+        stroke-width="3" />
+
+  <!-- The "S" Graphic (Sai branding) -->
+  <path d="M 270,140
+           C 210,140 180,180 180,210
+           C 180,250 220,260 256,270
+           C 292,280 332,290 332,330
+           C 332,370 290,400 240,400
+           C 190,400 160,370 160,350"
+        fill="none" 
+        stroke="url(#steel-blue-grad)" 
+        stroke-width="32" 
+        stroke-linecap="round" 
+        filter="url(#logo-glow)" />
+
+  <!-- Accent dot inside "S" terminal -->
+  <circle cx="240" cy="336" r="8" fill="#fdbb2d" />
+</svg>
