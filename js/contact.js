@@ -2,6 +2,11 @@
 
 import { showNotification } from './main.js';
 
+// Web3Forms access key. Get a free one in ~30s at https://web3forms.com
+// (enter your email -> the key is emailed to you). This key is designed to be
+// public, so it is safe to commit and ship in client-side code.
+const WEB3FORMS_ACCESS_KEY = '4a71b1d4-0208-4ad6-bbfa-4e69f279251f';
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const formCard = document.getElementById('form-card');
@@ -51,29 +56,25 @@ document.addEventListener('DOMContentLoaded', () => {
     fields.forEach(field => field.disabled = true);
 
     try {
-      // 4. Send Real Email via FormSubmit AJAX API.
-      // Use FormData (multipart) rather than JSON so the request stays a
-      // CORS "simple request" — JSON content-type would trigger a preflight
-      // OPTIONS that FormSubmit doesn't answer with CORS headers.
+      // 4. Send Real Email via Web3Forms API.
+      // Sent as FormData (multipart) so the request stays a CORS "simple
+      // request" with no preflight.
       const formData = new FormData();
+      formData.append('access_key', WEB3FORMS_ACCESS_KEY);
       formData.append('name', name);
       formData.append('email', email);
-      formData.append('_subject', `[Portfolio Contact] ${subject}`);
-      formData.append('_template', 'table');
-      formData.append('_captcha', 'false');
+      formData.append('subject', `[Portfolio Contact] ${subject}`);
+      formData.append('from_name', 'Made by Sai — Contact Form');
       formData.append('message', message);
+      formData.append('botcheck', '');
 
-      const response = await fetch('https://formsubmit.co/ajax/hello@madebysai.com', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData
       });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
       const result = await response.json();
-      if (result.success !== 'true' && result.success !== true) {
+      if (!response.ok || !result.success) {
         throw new Error(result.message || 'Form submission was not successful');
       }
 
